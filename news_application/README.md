@@ -172,7 +172,7 @@ python manage.py test
 ### Setup Instructions
 1. Clone repository
 ```
-git clone <repo-url>
+git clone https://github.com/samia-islam-01/NewsApplication_Django
 cd news_application
 ```
 2. Create virtual environment
