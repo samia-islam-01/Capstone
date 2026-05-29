@@ -101,7 +101,7 @@ class Newsletter(models.Model):
 
 
 class CustomUser(AbstractUser):
-
+    """Model for custom user to allocate groups and subscriptions"""
     ROLE_CHOICES = [
         ('reader', 'Reader'),
         ('journalist', 'Journalist'),
