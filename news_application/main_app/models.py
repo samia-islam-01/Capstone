@@ -71,6 +71,7 @@ class Article(models.Model):
 
 
 class Newsletter(models.Model):
+    """Represents a news newsletter"""
     title = models.CharField(max_length=200)
 
     description = models.TextField()
