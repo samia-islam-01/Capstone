@@ -164,13 +164,7 @@ def manage_articles(request):
     if not is_editor(request.user) or not request.user.is_authenticated:
         return HttpResponse("Not authorised", status=403)
 
-    managed_publishers = Publisher.objects.filter(
-        editors=request.user
-    )
-
-    articles = Article.objects.filter(
-        publisher__in=managed_publishers
-    )
+    articles = Article.objects.all()
 
     return render(request, 'main_app/manage_articles.html', {
         'articles': articles
