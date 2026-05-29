@@ -188,11 +188,6 @@ def approve_article(request, article_id):
         id=article_id
     )
 
-    if article.publisher:
-    # Check the editor is part of the publisher that published this article
-        if request.user not in article.publisher.editors.all():
-            return HttpResponse("Not allowed", status=403)
-
     if article.approved:
         article.approved = False
         article.save()
