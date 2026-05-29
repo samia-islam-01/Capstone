@@ -40,7 +40,7 @@ This project was built to satisfy the following requirements:
 *  Can apply to join a publisher
 
 ### Editor
-*  Can approve articles within their publisher
+*  Can approve any article
 *  Can edit and delete any article or newsletter within their publisher
 *  Can create, manage and delete publishers
 *  Can apply to join a publisher
