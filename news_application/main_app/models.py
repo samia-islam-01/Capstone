@@ -41,6 +41,7 @@ class Publisher(models.Model):
 
 
 class Article(models.Model):
+    """Represents a news article"""
     title = models.TextField()
 
     # If independent
