@@ -235,7 +235,7 @@ Content:
 
 
 def view_article(request, article_id):
-    """ALlows users to view a specific article"""
+    """Allows users to view a specific article"""
     article = get_object_or_404(
         Article,
         id=article_id,
