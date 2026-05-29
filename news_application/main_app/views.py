@@ -67,7 +67,7 @@ def create_article(request):
                 author=request.user,
                 publisher=publisher,
                 content=content,
-                approved=False # An editor will have to approve this
+                approved=False
             )
 
         # If published independently
