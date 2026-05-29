@@ -231,22 +231,6 @@ Content:
                 fail_silently=True
             )
 
-    try:
-
-        requests.post(
-            "http://127.0.0.1:8000/api/approved/",
-            json={
-                "article_id": article.id,
-                "title": article.title,
-                "publisher":
-                article.publisher.name if article.publisher else None
-            }
-        )
-
-    except Exception:
-        pass
-
-
     return redirect('main_app:manage_articles')
 
 
