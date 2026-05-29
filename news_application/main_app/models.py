@@ -5,6 +5,7 @@ from django.conf import settings
 User = settings.AUTH_USER_MODEL
 
 class Publisher(models.Model):
+    """Represents a news publisher"""
     name = models.CharField(max_length=100)
 
     description = models.TextField(blank=True)
