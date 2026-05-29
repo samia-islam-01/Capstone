@@ -67,7 +67,7 @@ def create_article(request):
                 author=request.user,
                 publisher=publisher,
                 content=content,
-                approved=False # An editor will have to approve this
+                approved=False
             )
 
         # If published independently
@@ -77,7 +77,7 @@ def create_article(request):
                 author=request.user,
                 publisher=publisher,
                 content=content,
-                approved=True # No editor has to approve this
+                approved=False
             )
 
         return redirect('main_app:my_articles')
@@ -164,13 +164,7 @@ def manage_articles(request):
     if not is_editor(request.user) or not request.user.is_authenticated:
         return HttpResponse("Not authorised", status=403)
 
-    managed_publishers = Publisher.objects.filter(
-        editors=request.user
-    )
-
-    articles = Article.objects.filter(
-        publisher__in=managed_publishers
-    )
+    articles = Article.objects.all()
 
     return render(request, 'main_app/manage_articles.html', {
         'articles': articles
@@ -187,11 +181,6 @@ def approve_article(request, article_id):
         Article,
         id=article_id
     )
-
-    if article.publisher:
-    # Check the editor is part of the publisher that published this article
-        if request.user not in article.publisher.editors.all():
-            return HttpResponse("Not allowed", status=403)
 
     if article.approved:
         article.approved = False
@@ -242,27 +231,11 @@ Content:
                 fail_silently=True
             )
 
-    try:
-
-        requests.post(
-            "http://127.0.0.1:8000/api/approved/",
-            json={
-                "article_id": article.id,
-                "title": article.title,
-                "publisher":
-                article.publisher.name if article.publisher else None
-            }
-        )
-
-    except Exception:
-        pass
-
-
     return redirect('main_app:manage_articles')
 
 
 def view_article(request, article_id):
-    """ALlows users to view a specific article"""
+    """Allows users to view a specific article"""
     article = get_object_or_404(
         Article,
         id=article_id,
