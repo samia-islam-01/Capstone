@@ -5,6 +5,7 @@ from django.conf import settings
 User = settings.AUTH_USER_MODEL
 
 class Publisher(models.Model):
+    """Represents a news publisher"""
     name = models.CharField(max_length=100)
 
     description = models.TextField(blank=True)
@@ -40,6 +41,7 @@ class Publisher(models.Model):
 
 
 class Article(models.Model):
+    """Represents a news article"""
     title = models.TextField()
 
     # If independent
@@ -69,6 +71,7 @@ class Article(models.Model):
 
 
 class Newsletter(models.Model):
+    """Represents a news newsletter"""
     title = models.CharField(max_length=200)
 
     description = models.TextField()
@@ -98,7 +101,7 @@ class Newsletter(models.Model):
 
 
 class CustomUser(AbstractUser):
-
+    """Model for custom user to allocate groups and subscriptions"""
     ROLE_CHOICES = [
         ('reader', 'Reader'),
         ('journalist', 'Journalist'),
