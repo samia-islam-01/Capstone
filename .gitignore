@@ -19,7 +19,6 @@ media/
 
 # Distribution / packaging
 dist/
-build/
 *.egg-info/
 *.egg
 
