@@ -234,6 +234,81 @@ python manage.py runserver
 ```
 http://127.0.0.1:8000
 ```
+### Docker Setup
+
+This project is containerised using Docker and Docker Compose. It includes two services:
+* web → Django application
+* db → MySQL 8 database
+#### Prerequisites
+Make sure you have installed:
+* Docker → `https://www.docker.com/`
+* Docker Compose (included with Docker Desktop)
+#### Running the Project with Docker
+1. Clone the repository
+```
+git clone https://github.com/samia-islam-01/Capstone
+cd news_application
+```
+2. Build and start the containers
+```
+docker-compose up --build
+```
+This will:
+* Build the Django image
+* Pull MySQL 8 image
+* Start both containers
+
+3. Access the application
+* Once running, open:
+```
+http://localhost:8000
+```
+#### Database Configuration
+Input your MYSQL database login details for this application:
+```
+MYSQL_DATABASE: your_app_db
+MYSQL_USER: your_username
+MYSQL_PASSWORD: your_password
+MYSQL_ROOT_PASSWORD: your_root_password
+```
+These are in `docker-compose.yml` but are configured in `.env`.
+
+Please duplicate `.env.example` and rename it to `.env`, then replace the values with your own.
+#### Important Notes
+* MySQL startup delay
+
+The database container may take a few seconds to fully initialise. If the web container fails initially, restart it:
+```
+docker-compose restart web
+```
+#### Resetting the database (optional)
+If you need a clean database:
+```
+docker-compose down -v
+docker-compose up --build
+```
+This removes all stored MySQL data.
+#### Stopping the project
+```
+docker-compose down
+```
+#### Full cleanup (containers + volumes + images)
+```
+docker system prune -a
+```
+#### Database Migrations
+
+After starting the containers for the first time, you must run Django migrations to create the database tables.
+
+Run the following command:
+```
+docker compose exec web python manage.py makemigrations
+docker compose exec web python manage.py migrate
+```
+And then:
+```
+docker compose up
+```
 ### Technologies Used
 * Django 6
 * Django REST Framework
@@ -242,9 +317,11 @@ http://127.0.0.1:8000
 * Python Requests (external API simulation)
 * Django Unit Testing Framework
 * Bootstrap (frontend UI)
+* Docker Compose
 
 ### Notes
 * All users can view articles, newsletters and publishers. Although this wasn't specified in the brief, this is a personal preference
     * Because of this, I have specified a reason that the different roles are able to see these pages (e.g. applying to join a publisher)
 * I have implemented the publisher functionality under the editor role (e.g. creating and managing)
 * In the future, I would like to implement a notification system where editors creating publishers select journalists and editors they want for it but those people have to accept the invitation in order to be a part of it, however that is not required for this task
+* I have kept the setup instructions linked to the original repository for the first News Application repo and the Docker Setup instructions linked to the Capstone Consolidation project repo 
