@@ -33,8 +33,3 @@ dist/
 
 # macOS
 .DS_Store
-
-
-# Ignore Docker files
-docker-compose.yml
-Dockerfile
