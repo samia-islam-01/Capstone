@@ -6,6 +6,8 @@ This is a full-stack Django News Application that allows users to read, create, 
 
 The application also includes a fully functional RESTful API, token-based authentication (JWT), automated unit tests, and an approval workflow that triggers notifications and external API logging.
 
+Please follow the Setup Instructions before attempting to execute or run tests on the program.
+
 ---
 
 ## Project Objectives
