@@ -329,3 +329,4 @@ python manage.py test
     * Because of this, I have specified a reason that the different roles are able to see these pages (e.g. applying to join a publisher)
 * I have implemented the publisher functionality under the editor role (e.g. creating and managing)
 * In the future, I would like to implement a notification system where editors creating publishers select journalists and editors they want for it but those people have to accept the invitation in order to be a part of it, however that is not required for this task
+* I would also like to rename the repository to something more meaningful and descriptive than 'Capstone' and make sure the github repository starts in the layer with README.md and manage.py
