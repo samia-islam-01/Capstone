@@ -244,7 +244,7 @@ Make sure you have installed:
 * Docker → `https://www.docker.com/`
 * Docker Compose (included with Docker Desktop)
 #### Running the Project with Docker
-1. Clone the repository
+1. Clone the repository if not done using setup instructions above
 ```
 git clone https://github.com/samia-islam-01/Capstone
 cd news_application
