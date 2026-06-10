@@ -154,6 +154,8 @@ And then:
 ```
 docker compose up
 ```
+---
+
 ## User Roles & Permissions
 
 ### Reader
