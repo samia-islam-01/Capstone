@@ -314,57 +314,6 @@ python manage.py test
 
 ---
 
-3. Access the application
-* Once running, open:
-```
-http://localhost:8000
-```
-#### Database Configuration
-Input your MYSQL database login details for this application:
-```
-MYSQL_DATABASE: your_app_db
-MYSQL_USER: your_username
-MYSQL_PASSWORD: your_password
-MYSQL_ROOT_PASSWORD: your_root_password
-```
-These are in `docker-compose.yml` but are configured in `.env`.
-
-Please duplicate `.env.example` and rename it to `.env`, then replace the values with your own.
-#### Important Notes
-* MySQL startup delay
-
-The database container may take a few seconds to fully initialise. If the web container fails initially, restart it:
-```
-docker-compose restart web
-```
-#### Resetting the database (optional)
-If you need a clean database:
-```
-docker-compose down -v
-docker-compose up --build
-```
-This removes all stored MySQL data.
-#### Stopping the project
-```
-docker-compose down
-```
-#### Full cleanup (containers + volumes + images)
-```
-docker system prune -a
-```
-#### Database Migrations
-
-After starting the containers for the first time, you must run Django migrations to create the database tables.
-
-Run the following command:
-```
-docker compose exec web python manage.py makemigrations
-docker compose exec web python manage.py migrate
-```
-And then:
-```
-docker compose up
-```
 ### Technologies Used
 * Django 6
 * Django REST Framework
