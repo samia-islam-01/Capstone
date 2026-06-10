@@ -182,8 +182,8 @@ python manage.py test
 ### Setup Instructions
 1. Clone repository
 ```
-git clone https://github.com/samia-islam-01/NewsApplication_Django
-cd NewsApplication_Django/news_application
+git clone https://github.com/samia-islam-01/Capstone
+cd Capstone/news_application
 ```
 2. Create virtual environment
 ```
